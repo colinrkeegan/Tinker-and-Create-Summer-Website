@@ -1,0 +1,444 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.hamburger{
+    display: none;
+    padding-right: 10px;
+}
+
+#hidden{
+    display: none;
+}
+
+#overlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color:  rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
+/*		073077*/
+    }
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #000;
+    background-color: #F6F7FB;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+	color: #001945;
+}
+
+nav{
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+	color: #001945;
+}
+
+.logo-pic{
+    height: 75px;
+    width: auto;
+    padding: 5px 50px;
+}
+
+
+.middle-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* z-index: 2; */
+}
+
+#booking-link{
+    color:#000000;
+    padding: 0 50px;
+    font-weight: bold;
+}
+.nav-links {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: inline-block;
+    padding-bottom: 0.15rem; /* defines the space between text and underline */
+    position: relative;
+  }
+
+  .nav-links::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #6692d9;
+    transition: width 0.25s ease-out;
+  }
+  .nav-links:hover::before {
+    width: 100%;
+  }
+
+
+.animal-subheader {
+    width: 100vw;
+    height: 3vw;
+    background-image: url('scuba-subheader.png');
+    /*	background-image: url('bird-subheader.png');*/
+    /*	background-image: url('crab-subheader.png');*/
+    background-size: contain;
+}
+
+.container {
+    padding: 0 0 0 0;
+    margin: auto;
+}
+
+.video-container {
+    position: relative;
+    width: 100vw;
+    font-family: papyrus;
+/*    font-weight: bolder;*/
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+
+.video-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 7vw;
+    color: #8DE2BF;
+    -webkit-text-stroke: 1px #073077;
+	text-shadow: 1px 1px #000;
+    margin-bottom: 1vw;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    width: 60vw;
+    padding: 1vw;
+    box-sizing: border-box;
+    /* background-color: rgba(255, 255, 255, 0.2); */
+}
+
+.book-button {
+    color: #fff;
+    -webkit-text-stroke: 1px #8DE2BF;
+    position: relative;
+    text-align: center;
+    margin-top: 3vw;
+    font-size: 7vw;
+    text-decoration: none;
+}
+
+.book-button:hover {
+    color: #073077;
+}
+
+
+.image {
+    display: block;
+    max-height: 95vh;
+    margin: auto;
+}
+
+/* The CSS in this and the following #review-container p help keep the reviews centered */
+#review-container {
+    width: 95vw;
+    margin: 1vw;
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid #073077;
+    border-radius: 10px;
+    /*    line-height: 200px;*/
+    color: #28246C;
+    box-sizing: border-box;
+    padding: 2vw;
+}
+
+#review-container p {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#review {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#packages-container{
+    justify-content: center;
+    /*    display: flex;*/
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* height: 50vw; */
+    /* max-height: 450px;
+    max-width: 450px; */
+    width: 100%;
+/*    border: solid 5px #00FF48;*/
+    margin: 1vw;
+    height: 100px;
+    gap: 5px;
+	box-sizing: border-box;
+}
+
+.package-img {
+    border-radius: 10px;
+}
+
+.package {
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: solid 3px #001945;
+    width: 25vw;
+    height: 25vw;
+    text-align: center;
+    /* font-size: min(12vw, 108px); */
+    font-family: "Lucida Console", "Arial";
+    background-color: #ffffff;
+    /*    padding: 1vw;*/
+
+    /*
+    width: 350px;
+    height: 300px;
+    */
+    animation: slideInFromLeft 2.5s ease-out;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    margin: 50px;
+}
+
+.package img {
+    max-height: 100%;
+    width: auto;
+    overflow: hidden;
+}
+
+.package:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+    outline: solid 2px #8DE2BF;
+/*	#001945*/
+}
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+#packageSeries{
+    display: flex;
+    flex-direction: row;
+    /* the packages go off the page on mobile */
+    max-width: 100%;
+    justify-content: center;
+}
+
+#dropdown{
+    height: 30vw;
+    width: 75vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 7vw;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 2vw;
+    text-align: center;
+    background-color: #073077;
+    color: #fff;
+    outline: solid 1px #073077;
+    margin-top: 2vw;
+}
+
+#book-package{
+    margin-top: 1vw;
+    border-radius: 10px;
+    height: auto;
+    width: 45vw;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: #8DE2BF;
+    color: #073077;
+    box-sizing: border-box;
+    outline: solid 1px #073077;
+    padding: 2vw;
+}
+
+#packageForm {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: #073077;
+    color: #F6F7FB;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    justify-content: left;
+    bottom:0;
+    margin-top: 15px;
+}
+
+#footer-link-container {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    width:100%;
+}
+
+.footer-link {
+    background-color: #8DE2BF;
+    color: #28246C;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.footer-link:hover {
+    background-color: #39339d;
+    outline: 4px solid #4a41d0;
+    box-sizing: border-box;
+    color: #00FF48;
+    z-index: 1;
+}
+
+#footer-link-left {
+    width: 50%;
+    border-top-left-radius: 20px;
+}
+
+#footer-link-right {
+    width: 50%;
+    border-top-right-radius: 20px;
+}
+
+#footer-credit {
+    margin: 0;
+    padding: 7px;
+}
+
+/*  These guys were on some pages idk what they were for but they werent divd anywhere*/
+#aboutLinks{
+width: 100vw;
+height: 300px;
+display: flex;
+flex-direction: row;
+}
+.aboutLinksFlex{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+#aboutOne{
+	background-image: url("./images/crab.jpg");
+	width: 50vw;
+	padding-right: 10px;
+}
+#aboutTwo{
+	background-image: url("./images/crab.jpg");
+	width: 50vw;
+}
+
+/*  —————————————————————————————————————————————————————————————————————————————_*/
+
+/* On screens that are 600px wide or less */
+@media screen and (max-width: 600px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+    }
+    #booking-link{
+        padding: 0;
+        display: none;
+    }
+
+    .middle-nav{
+        display: none;
+        position: absolute;
+        top: 60px; /* Adjust as needed */
+        right: 20px; /* Adjust as needed */
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 3;
+    }
+
+
+
+    .middle-nav a, #booking-link-div a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .middle-nav a:hover, #booking-link-div a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .package{
+        margin: 15px;
+    }
+
+    .animal-subheader {
+        display: none;
+    }
+
+    #hidden{
+        display: block;
+    }
+
+    #text {
+        width: 50vw; /* 50% of viewport width */
+        height: 50vh; /* 50% of viewport height */
+        font-size: 20px; /* Reduced font size */
+    }
+
+    #dropdown{
+        font-size: 12vw;
+        height: 50vh;
+    }
+}

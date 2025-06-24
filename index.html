@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Main Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Christmas Island</title>
+    <style>
+
+    #crab-container {
+        position: relative;
+        width: 100%;
+        margin-top: 15px;
+        height: 54.5px;
+        padding: 5px;
+        background-image: url(images/beach.jpeg);
+        background-size: cover;
+    }
+
+    #moveImage {
+        position: absolute;
+        width: 100px;
+        height: auto;
+    }
+
+    .package a {
+        text-align: center;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        font-size: min(27px, 2vw);
+        color: #073077;
+    }
+
+    footer {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        margin-top: 0px;
+    }
+
+    #footer-link-left {
+        border-top-left-radius: 0px;
+    }
+
+    #footer-link-right {
+        border-top-right-radius: 0px;
+    }
+
+    </style>
+    <!-- The font created issues when loaded online, need to download it or something look up CORS stuff or ask me im writing this while tired -->
+    <!-- <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/ouroboros" type="text/css"/> -->
+    <!-- <link rel="shortcut icon" href="favicon.ico">  -->
+    <!-- TODO: Make a favicon then uncomment the line above-->
+    <!-- <script src="JavaScript.js"></script>  -->
+    <!-- May need to change name or delete above line-->
+
+
+    <body>
+
+        <nav>
+            <ul>
+                <li><a href="index.html"><img class="logo-pic" src="logo.png" alt="LOGO" width="100%" height="100%"></a></li>
+                <div class="middle-nav">
+
+                    <li><a class="nav-links" href="about_christmas_island.html">About</a></li>
+                    <li><a class="nav-links" href="our-story.html">Our Story</a></li>
+                    <li><a class="nav-links" href="reviews.html">Reviews</a></li>
+                    <li><a class="nav-links" href="contact-us.html">Contact Us</a></li>
+                    <li><a class="nav-links" href="animals.html">Animals</a></li>
+                    <li id="hidden"><a class="nav-links" href="booking.html">Book Now!</a></li>
+                </div>
+                <div id="booking-link-div">
+                    <li id="booking-link"><a class="nav-links" href="booking.html">Book Now!</a></li>
+                </div>
+                <img class="hamburger" src="hamMenu.png" alt="Hamburger Menu" />
+            </ul>
+        </nav>
+
+        <div class="animal-subheader"></div>
+
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-text">
+                Christmas Island Expeditions
+                <!--						<div id="book-button"> BOOK NOW </div>-->
+                <a href="booking.html" class="book-button">BOOK NOW</a>
+            </div>
+        </div>
+
+        <!-- TODO: get a fancy font lol-->
+        <div id="review-container">
+            <h1>Our Glowing Reviews:</h1>
+            <div id="review"></div>
+        </div>
+
+        <br>
+
+        <!-- TODO: For Colin, I will implement functionality to the links once the css is done :) -->
+        <!-- TODO: Make the packages look nice and shit (how should they react to being scaled?)-->
+        <div id="packageSeries">
+            <div class="package" id="packageBird">
+                <a href="booking.html"><img class="package-img" src="bird1.jpg" alt="Bird Watching Package"><b>Love Birds?</b></a>
+            </div>
+            <div class="package" id="packageCrab">
+                <a href="booking.html"><img class="package-img" src="crab1.jpg" alt="Crab Migration Package"><b>Love Crustaceans?</b></a>
+            </div>
+            <div class="package" id="packageScuba">
+                <a href="booking.html"><img class="package-img" src="scuba1.jpg" alt="Snorkeling Package"><b>Love Fish?</b></a>
+            </div>
+        </div>
+
+        <div id="reviewsContainer">
+            <!--					why is this here. why are there two review container divs-->
+        </div>
+
+
+        <div id="crab-container">
+            <img id="moveImage" src="images/crab.png" alt="Moving Image">
+        </div>
+
+        <footer>
+            <p id=footer-credit>&#9829; Website made by Firewall Phantoms 2024 &#129408;</p>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        document.getElementById('review').innerHTML="Reviews";
+        let review_arr = [];
+
+        getReviews();
+
+        async function getReviews() {
+            const response = await fetch("reviews.json");
+            const reviewsJSON = await response.json();
+            review_arr = reviewsJSON.reviews;
+            // const parsedReviewsArr = JSON.stringify(reviews);
+            // console.log(parsedReviewsArr);
+        }
+
+        function animateImage() {
+            $("#moveImage").animate({left: "+=300"}, 2000, "linear", function() {
+                setTimeout(() => {
+                    $(this).animate({left: "-=300"}, 2000, "linear", function() {
+                        setTimeout(animateImage, 500);
+                    });
+                }, 500);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            animateImage();
+        });
+
+        window.onload = function() {
+
+            let currentIndex = 0;
+
+            function displayReview(index) {
+                const reviewContainer = document.getElementById('review');
+                reviewContainer.style.opacity = 0;
+                setTimeout(function () {
+                    reviewContainer.innerHTML = "<p>"+ review_arr[index].name + " - " + review_arr[index].date + " - " + review_arr[index].comment + " - " + review_arr[index].rating +"</p>";
+                    reviewContainer.style.opacity = 1;
+                }, 1000);
+            }
+
+            function changeReview() {
+                currentIndex = (currentIndex + 1) % review_arr.length;
+                displayReview(currentIndex);
+            }
+
+            displayReview(currentIndex);
+
+            //every 1000 = 1 second
+            setInterval(changeReview, 7000);
+        };
+
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            var nav = document.querySelector('.middle-nav');
+            var bookingLink = document.querySelector('#booking-link-div');
+            if (nav.style.display === 'none') {
+                nav.style.display = 'block';
+                bookingLink.style.display = 'block';
+            } else {
+                nav.style.display = 'none';
+                bookingLink.style.display = 'none';
+            }
+        });
+        </script>
+
+    </body>
+    </html>
