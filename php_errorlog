@@ -1,0 +1,5 @@
+[30-Apr-2024 03:47:35 UTC] PHP Parse error:  syntax error, unexpected '.', expecting end of file in /home/customer/www/hannahs.sgedu.site/public_html/shark_tank/benTest/get_all_orders.php on line 89
+[30-Apr-2024 03:54:44 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ';' or ',' in /home/customer/www/hannahs.sgedu.site/public_html/shark_tank/benTest/get_all_orders.php on line 120
+[30-Apr-2024 04:27:28 UTC] PHP Parse error:  syntax error, unexpected ''<br>'' (T_CONSTANT_ENCAPSED_STRING), expecting ';' or ',' in /home/customer/www/hannahs.sgedu.site/public_html/shark_tank/benTest/get_all_orders.php on line 108
+[30-Apr-2024 04:28:01 UTC] PHP Parse error:  syntax error, unexpected '$pokemonInfo' (T_VARIABLE), expecting ';' or ',' in /home/customer/www/hannahs.sgedu.site/public_html/shark_tank/benTest/get_all_orders.php on line 108
+[30-Apr-2024 07:38:10 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ';' or ',' in /home/customer/www/hannahs.sgedu.site/public_html/shark_tank/benTest/products2.php on line 255
