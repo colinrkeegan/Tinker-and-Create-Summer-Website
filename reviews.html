@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Travel to Christmas Island</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+    .review-card {
+        background-color: #8DE2BF;
+        animation: reviewCardFadeIn 1s ease-out;
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        box-sizing: border-box;
+        width: 90vw;
+        display: inline-block;
+        border-bottom: 2px solid #2f90a1;
+    }
+
+    .review-card:not(:first-of-type) {
+        border-top: 2px solid #2f90a1;
+    }
+
+    .review-card:last-of-type {
+        border-bottom: 0px;
+    }
+
+    .review-card:hover {
+        transform: scale(1.05);
+        background-color: #bbf0da;
+    }
+
+    #review-container-all{
+        width: 95vw;
+        margin: auto;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 2vw;
+        justify-content: center;
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        border: solid 5px #2f90a1;
+        background-color: #073077;
+        border-radius: 10px;
+        padding:2vw;
+    }
+
+    #review-container{
+        background-color: #073077;
+        justify-content: center;
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        border: 0;
+        margin:0;
+        padding:0;
+    }
+
+    #filter-form {
+        box-sizing: border-box;
+        background-color: #8DE2BF;
+        margin: 10px 0 10px 0;
+        padding: 5px;
+        border-radius: 14px;
+        width: 90vw;
+    }
+
+    p {
+        margin: 15px;
+    }
+
+    footer p {
+        margin: 0px;
+    }
+
+    #submit-review {
+        margin: 10px;
+        padding: 1vw;
+        width: 75vw;
+        box-sizing: border-box;
+        background-color: #8DE2BF;
+        border-radius: 14px;
+    }
+
+    .review-form {
+        display:block;
+        padding: 1vw;
+        margin: auto;
+        box-sizing: border-box;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px 5px;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    #filter-btn {
+        width: 50%;
+        max-width: 370px;
+        margin: auto;
+    }
+
+    @keyframes reviewCardFadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><img class="logo-pic" src="logo.png" alt="LOGO" width="100%" height="100%"></a></li>
+            <div class="middle-nav">
+
+                <li><a class="nav-links" href="about_christmas_island.html">About</a></li>
+                <li><a class="nav-links" href="our-story.html">Our Story</a></li>
+                <li><a class="nav-links" href="reviews.html">Reviews</a></li>
+                <li><a class="nav-links" href="contact-us.html">Contact Us</a></li>
+                <li><a class="nav-links" href="animals.html">Animals</a></li>
+                <li id="hidden"><a class="nav-links" href="booking.html">Book Now!</a></li>
+            </div>
+            <div id="booking-link-div">
+                <li id="booking-link"><a class="nav-links" href="booking.html">Book Now!</a></li>
+            </div>
+            <img class="hamburger" src="hamMenu.png" alt="Hamburger Menu" />
+        </ul>
+    </nav>
+
+    <div class="animal-subheader"></div>
+
+    <h1 style="font-size: 5vw;">Reviews</h1>
+
+    <div id="review-container-all">
+        <form id="filter-form" action="">
+            <label for="filters">Filter Reviews by Rating:</label>
+            <select name="filters" id="filters">
+                <option value="all">All Reviews</option>
+                <option value="5">Five Stars</option>
+                <option value="4">Four Stars</option>
+                <option value="3">Three Stars</option>
+                <option value="2">Two Stars</option>
+                <option value="1">One Star :&#40;</option>
+            </select>
+            <input id="filter-btn" type="submit" value="Filter Reviews">
+        </form>
+        <div id="review-container">
+            <!-- User reviews will be populated here -->
+        </div>
+    </div>
+
+    <section id="submit-review">
+        <h2>Submit Your Review</h2>
+        <form id="review-form" action="#">
+            <label>Your Name: <input type="text" id="user-name" name="user-name" placeholder="Enter your name here" required/></label>
+            <label for="user-rating">Rating:
+                <select name="user-rating" id="user-rating" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">3</option>
+                <option value="5">5</option>
+            </select></label>
+            </br>
+            <label>Review:<br><textarea type="text" name="user-review" placeholder="Enter your review here" rows="4" required></textarea></label>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+    <footer>
+        <p id=footer-credit>&#9829; Website made by Firewall Phantoms 2024 &#129408;</p>
+    </footer>
+
+    <script>
+    document.querySelector('.hamburger').addEventListener('click', function() {
+        var nav = document.querySelector('.middle-nav');
+        var bookingLink = document.querySelector('#booking-link-div');
+        if (nav.style.display === 'none') {
+            nav.style.display = 'block';
+            bookingLink.style.display = 'block';
+        } else {
+            nav.style.display = 'none';
+            bookingLink.style.display = 'none';
+        }
+    });
+
+    $.get( "reviews.json", function( data ) {
+        var a = window.location.href;
+        var curr_filter_url = a.split('?filters=')[1];
+        if (curr_filter_url != undefined) {
+            curr_filter_url = curr_filter_url.replace("+", " ");
+            curr_filter_url = curr_filter_url.replace("#", "");
+        }
+        console.log("LINK:" + a);
+        console.log("FILTERED LINK: " + curr_filter_url);
+
+        reviews_arr = data.reviews;
+        var reviews_str = "";
+        if (curr_filter_url == undefined || curr_filter_url == "all") {
+            reviews_arr.forEach(function(review) {
+                reviews_str += "<div class='review-card'>"
+                + "<p>" + review.name + "</p>"
+                + "<p>" + review.date + "</p></br>"
+                + "<p>" + review.comment + "</p></br>"
+                + "<p>" + review.rating + " stars</p>"
+                + "</div>"
+            });
+        } else {
+            reviews_arr.forEach(function(review) {
+                if (review.rating == curr_filter_url) {
+                    reviews_str += "<div class='review-card'>"
+                    + "<p>" + review.name + "</p>"
+                    + "<p>" + review.date + "</p></br>"
+                    + "<p>" + review.comment + "</p></br>"
+                    + "<p>" + review.rating + " stars</p>"
+                    + "</div>"
+                }
+            });
+        }
+        $("#review-container").html(reviews_str);
+    });
+    </script>
+</body>
+</html>

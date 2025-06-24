@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals of Christmas Island</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+	<link rel="shortcut icon" href="favicon.ico">
+    <style type="text/css">
+
+	#gridContainer {
+        display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+        margin: 10px 20px;
+    }
+
+    #gridContainer div {
+/*        border: 1px solid #000;*/
+        flex: 1 0 200px;
+        cursor: pointer;
+		overflow: hidden;
+        position: relative;
+        height: 40vh;
+        border-radius: 10px;
+
+		object-fit: cover;
+    }
+
+	#gridContainer div h2{
+        position: absolute;
+        top: 80%;
+		left: 50%;
+	    transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: min(2vw, 24px);
+		font-family: fantasy;
+		text-align: center;
+		text-shadow: 1px 1px #073077;
+        z-index: 2;
+/*		-webkit-text-stroke: 0.5px #073077;*/
+    }
+
+    #gridContainer div p {
+        display: none;
+    }
+
+	#gridContainer div img {
+		min-width: 100%;
+        transition: .3s ease;
+		height: 40vh;
+
+	}
+
+	#gridContainer div:hover {
+		filter: brightness(50%);
+	}
+
+    #text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 2vw;
+        color: black;
+        transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        background-color: white;
+        padding: 80px;
+        border-radius: 10px;
+    }
+
+        /* On screens that are 600px wide or less */
+        @media screen and (max-width: 600px) {
+
+			#text {
+				font-size: 3vw;
+			}
+
+            #gridContainer div img {
+                transform: translateX(-30%);
+            }
+        }
+
+        h1,h2 {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><img class="logo-pic" src="logo.png" alt="LOGO" width="100%" height="100%"></a></li>
+            <div class="middle-nav">
+
+                <li><a class="nav-links" href="about_christmas_island.html">About</a></li>
+                <li><a class="nav-links" href="our-story.html">Our Story</a></li>
+                <li><a class="nav-links" href="reviews.html">Reviews</a></li>
+                <li><a class="nav-links" href="contact-us.html">Contact Us</a></li>
+                <li><a class="nav-links" href="animals.html">Animals</a></li>
+                <li id="hidden"><a class="nav-links" href="booking.html">Book Now!</a></li>
+            </div>
+            <div id="booking-link-div">
+                <li id="booking-link"><a class="nav-links" href="booking.html">Book Now!</a></li>
+            </div>
+            <img class="hamburger" src="hamMenu.png" alt="Hamburger Menu" />
+        </ul>
+    </nav>
+    <div class="animal-subheader"></div>
+
+
+
+
+
+	 <!-- Grid Section -->
+    <section>
+        <h1>The Animals of Christmas Island</h1>
+        <div id="gridContainer">
+            <div class="grid-item">
+                <h2>Manta Ray</h2>
+				<img src="manta-ray.jpg" alt="Manta Ray">
+                <p>Manta Rays possess the largest brains and brain-to-body ratio among all fish species. Research indicates that they may exhibit self-recognition in mirrors, a trait associated with advanced cognitive abilities. See them in our Snorkel Package!</p>
+            </div>
+            <div class="grid-item">
+                <h2>Christmas Island Red Crab</h2>
+				<img src="red-crab.jpg" alt="Christmas Island Red Crab">
+                <p> Approximately 43.7 million adult Red Crabs inhabited Christmas Island exclusively. Their yearly mass migration to the ocean for breeding is deemed an "epic" spectacle. Simultaneously, millions surface, causing traffic disruptions and blanketing the terrain in a dense layer of crabs. See them in our Red Crab Migration Package!</p>
+            </div>
+			<div class="grid-item">
+                <h2>Butterflyfish</h2>
+				<img src="butterflyfish.jpg" alt="Butterflyfish">
+                <p>Known for their vibrant color patterns, intricate shapes, and elegant swimming styles, the majority of Butterflyfish prefer solitary living or pair bonding. See them in our Snorkel Package!</p>
+            </div>
+			<div class="grid-item">
+                <h2>Christmas Island Goshawk</h2>
+				<img src="goshawk.jpg" alt="Christmas Island Goshawk">
+                <p>The Christmas Island Goshawk is identified by its greyish-brown feathers with light barring, along with yellow legs and piercing golden eyes. These birds are commonly found in plateau and terrace forests. They exhibit a curious and tame nature, occasionally trailing behind hikers. See them in our Bird Watching Package!</p>
+            </div>
+			<div class="grid-item">
+                <h2>Whale Shark</h2>
+				<img src="whale-shark.jpg" alt="Whale Shark">
+                <p>The Whale Shark, the largest living fish species, is a leisurely filter-feeder. It feeds exclusively on plankton and visits Christmas Island to consume the billions of larvae released during the annual Red Crab Migration. See them in our Snorkel Package! </p>
+            </div>
+			<div class="grid-item">
+                <h2>Christmas Emerald Dove</h2>
+				<img src="emerald-dove.jpg" alt="Christmas Emerald Dove">
+                <p>This endangered subspecies of small, colorful pigeon is unique to Christmas Island, with an estimated population of around 2000 birds. Christmas Emerald Doves feed on fallen fruit on the ground and are often observed in pairs. See them in our Bird Watching Package!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overlay -->
+    <div id="overlay" style="background-color:rgba(29, 29, 29, 0.6)">
+        <div id="text"></div>
+    </div>
+
+
+
+
+    <footer>
+        <p id=footer-credit>&#9829; Website made by Firewall Phantoms 2024 &#129408;</p>
+    </footer>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            var nav = document.querySelector('.middle-nav');
+            var bookingLink = document.querySelector('#booking-link-div');
+            if (nav.style.display === 'none') {
+                nav.style.display = 'block';
+                bookingLink.style.display = 'block';
+            } else {
+                nav.style.display = 'none';
+                bookingLink.style.display = 'none';
+            }
+        });
+
+		var overlay = document.getElementById('overlay');
+    	var text = document.getElementById('text');
+
+    	var gridDivs = document.querySelectorAll('#gridContainer div');
+    		gridDivs.forEach(function(div) {
+        div.addEventListener('click', function() {
+            text.innerHTML = this.querySelector('p').innerHTML;
+            overlay.style.display = 'block';
+        });
+    });
+
+    overlay.addEventListener('click', function() {
+        overlay.style.display = 'none';
+    });
+    </script>
+
+
+</body>
+</html>
